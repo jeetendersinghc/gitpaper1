@@ -15,7 +15,7 @@ ggplot(data, aes(x, y)) +
   geom_point(color = "blue", size = 3) +
   geom_line(color = "red", linewidth = 1) +
   labs(
-    title = "Simple Scatter Plot (Developer A)",
+    title = "Simple Scatter Plot (Developer A - Final)",
     x = "X Values",
     y = "Y Values"
   ) +
