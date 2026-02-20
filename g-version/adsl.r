@@ -35,7 +35,6 @@ adsl$TRT_LABEL <- case_when(
 )
 
 # 6. Calculate summary statistics
-mean_age <- mean(adsl$AGE)
 median_age <- median(adsl$AGE)
 max_age <- max(adsl$AGE)
 min_age <- min(adsl$AGE)
@@ -45,7 +44,6 @@ summary_by_trt <- adsl %>%
   group_by(TRT) %>%
   summarise(
     COUNT = n(),
-    MEAN_AGE = mean(AGE),
     MEDIAN_AGE = median(AGE),
     ELDERLY_COUNT = sum(ELDERLY_FLAG)
   )
@@ -59,7 +57,6 @@ print(adsl)
 cat("\n============================================================\n")
 cat("Overall Age Summary\n")
 cat("============================================================\n")
-cat("Mean Age:   ", mean_age, "\n")
 cat("Median Age: ", median_age, "\n")
 cat("Max Age:    ", max_age, "\n")
 cat("Min Age:    ", min_age, "\n")
