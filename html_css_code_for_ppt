@@ -1,0 +1,936 @@
+<div class="wrap">
+    <h1>Conceptual Collaboration Model (Original): Local Git + Remote Repository</h1>
+
+    <div class="grid">
+      <!-- Developer A -->
+      <section class="dev">
+        <h2>DEVELOPER A (Local Git)</h2>
+        <div class="stack">
+          <div class="area">
+            <b>Working Directory</b>
+            <p>Edit files and run checks locally.</p>
+            <div class="pillrow">
+              <span class="pill warn">git status</span>
+              <span class="pill warn">git diff</span>
+            </div>
+          </div>
+          <div class="area">
+            <b>Staging Area</b>
+            <p>Select changes to include in the next snapshot.</p>
+            <div class="pillrow">
+              <span class="pill ok">git add</span>
+              <span class="pill warn">git restore --staged</span>
+            </div>
+          </div>
+          <div class="area">
+            <b>Local Repository</b>
+            <p>Commit history stored on the developer’s machine.</p>
+            <div class="pillrow">
+              <span class="pill ok">git commit</span>
+              <span class="pill warn">git log</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="flows">
+          <div class="flow"><b>Push:</b> publish local commits to the remote repository using <code>git push</code>.</div>
+          <div class="flow"><b>Fetch:</b> retrieve updates from remote without merging using <code>git fetch</code>.</div>
+          <div class="flow"><b>Pull:</b> retrieve and integrate remote updates using <code>git pull</code>.</div>
+        </div>
+      </section>
+
+      <!-- Center: Remote -->
+      <div class="centercol">
+        <section class="remote">
+          <div class="title">REMOTE REPOSITORY</div>
+          <p class="sub">Shared repository hosted on GitHub (or another Git server). Enables collaboration by exchanging commits.</p>
+          <div class="pillrow" style="justify-content:center;margin-top:10px">
+            <span class="pill ok">git clone</span>
+            <span class="pill warn">git fetch</span>
+            <span class="pill ok">git push</span>
+            <span class="pill warn">git pull</span>
+          </div>
+        </section>
+
+        <section class="legend">
+          <h3>Notes</h3>
+          <ul>
+            <li><code>git clone</code> creates a full local copy of the remote repository.</li>
+            <li><code>git push</code> sends committed snapshots to the remote.</li>
+            <li><code>git fetch</code> downloads remote changes but does not merge them.</li>
+            <li><code>git pull</code> fetches and integrates updates into the current branch.</li>
+          </ul>
+        </section>
+      </div>
+
+      <!-- Developer B -->
+      <section class="dev">
+        <h2>DEVELOPER B (Local Git)</h2>
+        <div class="stack">
+          <div class="area">
+            <b>Working Directory</b>
+            <p>Edit files independently and test locally.</p>
+            <div class="pillrow">
+              <span class="pill warn">git status</span>
+              <span class="pill warn">git diff</span>
+            </div>
+          </div>
+          <div class="area">
+            <b>Staging Area</b>
+            <p>Stage only the changes that are ready to record.</p>
+            <div class="pillrow">
+              <span class="pill ok">git add</span>
+            </div>
+          </div>
+          <div class="area">
+            <b>Local Repository</b>
+            <p>Commit locally; history is always available offline.</p>
+            <div class="pillrow">
+              <span class="pill ok">git commit</span>
+              <span class="pill warn">git log</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="flows">
+          <div class="flow"><b>Clone:</b> start by copying the remote with <code>git clone</code>.</div>
+          <div class="flow"><b>Pull:</b> stay up to date with <code>git pull</code> before pushing your work.</div>
+          <div class="flow"><b>Push:</b> share completed commits using <code>git push</code>.</div>
+        </div>
+      </section>
+    </div>
+
+    <p style="margin:14px 0 0;color:var(--muted);font-size:12px;line-height:1.45">
+      This figure is an original conceptual diagram describing Git’s distributed model: each developer has a full local repository,
+      and collaboration occurs by synchronizing commits with an optional remote repository.
+    </p>
+  </div>
+
+  body {
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin: 40px;
+}
+
+.box {
+  padding: 20px 25px;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  min-width: 180px;
+}
+
+.work {
+  background-color: #e74c3c; /* different red */
+}
+
+.stage {
+  background-color: #f39c12; /* orange, not mustard */
+}
+
+.repo {
+  background-color: #16a085; /* green-teal */
+}
+
+.arrow {
+  font-size: 28px;
+  font-weight: bold;
+  color: #555;
+}
+
+.command {
+  font-size: 14px;
+  color: #333;
+  margin-top: 6px;
+  font-weight: normal;
+}
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fafafa;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin: 40px;
+}
+
+.box {
+  padding: 20px 25px;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  min-width: 220px;
+}
+
+.work {
+  background-color: #e74c3c;
+}
+
+.stage {
+  background-color: #f39c12;
+}
+
+.repo {
+  background-color: #16a085;
+}
+
+.arrow {
+  font-size: 26px;
+  font-weight: bold;
+  color: #555;
+  text-align: center;
+}
+
+.command {
+  font-size: 13px;
+  font-weight: normal;
+  margin-top: 6px;
+}
+
+.note {
+  font-size: 12px;
+  font-weight: normal;
+  margin-top: 8px;
+  background-color: rgba(255, 255, 255, 0.15);
+  padding: 6px;
+  border-radius: 4px;
+}
+:root {
+  --bg: #0b1020;
+  --panel: #0f1833;
+  --card: #121c3b;
+  --text: #eaf0ff;
+  --muted: #b9c6ff;
+  --line: #2a3766;
+  --ok: #29c7a7;
+  --warn: #ffb020;
+  --hot: #ff5a5f;
+  --remote: #7aa6ff;
+}
+body {
+  margin: 0;
+  background: linear-gradient(120deg, #0b1020, #070b16);
+  font-family:
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Arial,
+    sans-serif;
+  color: var(--text);
+}
+.wrap {
+  max-width: 1200px;
+  margin: 26px auto;
+  padding: 18px;
+}
+h1 {
+  font-size: 18px;
+  margin: 0 0 14px;
+  color: var(--muted);
+  font-weight: 700;
+}
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 380px 1fr;
+  gap: 16px;
+  align-items: start;
+}
+.remote {
+  background: rgba(122, 166, 255, 0.08);
+  border: 1px solid rgba(122, 166, 255, 0.35);
+  border-radius: 14px;
+  padding: 14px;
+  text-align: center;
+}
+.remote .title {
+  font-weight: 900;
+  font-size: 16px;
+  margin: 2px 0 6px;
+}
+.remote .sub {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.35;
+  margin: 0;
+}
+.dev {
+  background: rgba(18, 28, 59, 0.75);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 14px;
+}
+.dev h2 {
+  margin: 0 0 10px;
+  font-size: 14px;
+  color: var(--muted);
+  letter-spacing: 0.4px;
+}
+.stack {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+.area {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.02);
+}
+.area b {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+.area p {
+  margin: 0;
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.35;
+}
+.pillrow {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.pill {
+  font-size: 12px;
+  padding: 7px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--text);
+}
+.pill.ok {
+  border-color: rgba(41, 199, 167, 0.5);
+}
+.pill.warn {
+  border-color: rgba(255, 176, 32, 0.55);
+}
+.pill.hot {
+  border-color: rgba(255, 90, 95, 0.55);
+}
+.flows {
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+.flow {
+  border: 1px dashed rgba(185, 198, 255, 0.35);
+  border-radius: 12px;
+  padding: 10px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.35;
+  background: rgba(255, 255, 255, 0.015);
+}
+.flow b {
+  color: var(--text);
+}
+.centercol {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.legend {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.02);
+}
+.legend h3 {
+  margin: 0 0 8px;
+  font-size: 13px;
+  color: var(--muted);
+}
+.legend ul {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+.legend code {
+  color: var(--text);
+}
+:root {
+  --bg: #0b1020;
+  --card: #111a33;
+  --text: #eaf0ff;
+  --muted: #b9c6ff;
+  --accent1: #ff5a5f; /* working */
+  --accent2: #ffb020; /* staging */
+  --accent3: #29c7a7; /* repo */
+  --line: #2a3766;
+}
+body {
+  margin: 0;
+  background: linear-gradient(120deg, #0b1020, #080c18);
+  font-family:
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Arial,
+    sans-serif;
+  color: var(--text);
+}
+.wrap {
+  max-width: 1100px;
+  margin: 28px auto;
+  padding: 18px;
+}
+h1 {
+  font-size: 18px;
+  margin: 0 0 14px;
+  color: var(--muted);
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+.row {
+  display: flex;
+  gap: 16px;
+  align-items: stretch;
+  flex-wrap: wrap;
+}
+.card {
+  flex: 1 1 280px;
+  background: rgba(17, 26, 51, 0.85);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 16px 16px 14px;
+  position: relative;
+  overflow: hidden;
+  min-height: 170px;
+}
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 8px;
+  border-radius: 14px 0 0 14px;
+  background: var(--accent1);
+}
+.card.staging::before {
+  background: var(--accent2);
+}
+.card.repo::before {
+  background: var(--accent3);
+}
+.title {
+  font-size: 16px;
+  font-weight: 800;
+  margin: 0 0 6px;
+}
+.subtitle {
+  font-size: 13px;
+  color: var(--muted);
+  margin: 0 0 12px;
+  line-height: 1.35;
+}
+.tag {
+  display: inline-block;
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.03);
+  margin: 4px 6px 0 0;
+}
+.mini {
+  margin-top: 12px;
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px dashed rgba(185, 198, 255, 0.35);
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.35;
+}
+.flow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+.arrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.02);
+}
+.arrow b {
+  color: var(--text);
+  font-weight: 800;
+}
+.chev {
+  font-size: 18px;
+  color: var(--muted);
+}
+.foot {
+  margin-top: 12px;
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.4;
+}
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fafafa;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin: 40px;
+}
+
+.box {
+  padding: 20px 25px;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  min-width: 220px;
+}
+
+.work {
+  background-color: #e74c3c;
+}
+
+.stage {
+  background-color: #f39c12;
+}
+
+.repo {
+  background-color: #16a085;
+}
+
+.arrow {
+  font-size: 26px;
+  font-weight: bold;
+  color: #555;
+  text-align: center;
+}
+
+.command {
+  font-size: 13px;
+  font-weight: normal;
+  margin-top: 6px;
+}
+
+.note {
+  font-size: 12px;
+  font-weight: normal;
+  margin-top: 8px;
+  background-color: rgba(255, 255, 255, 0.15);
+  padding: 6px;
+  border-radius: 4px;
+}
+body {
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin: 40px;
+}
+
+.box {
+  padding: 20px 25px;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  min-width: 180px;
+}
+
+.work {
+  background-color: #e74c3c; /* different red */
+}
+
+.stage {
+  background-color: #f39c12; /* orange, not mustard */
+}
+
+.repo {
+  background-color: #16a085; /* green-teal */
+}
+
+.arrow {
+  font-size: 28px;
+  font-weight: bold;
+  color: #555;
+}
+
+.command {
+  font-size: 14px;
+  color: #333;
+  margin-top: 6px;
+  font-weight: normal;
+}
+body {
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin: 40px;
+}
+
+.box {
+  padding: 20px 25px;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  min-width: 180px;
+}
+
+.work {
+  background-color: #e74c3c; /* different red */
+}
+
+.stage {
+  background-color: #f39c12; /* orange, not mustard */
+}
+
+.repo {
+  background-color: #16a085; /* green-teal */
+}
+
+.arrow {
+  font-size: 28px;
+  font-weight: bold;
+  color: #555;
+}
+
+.command {
+  font-size: 14px;
+  color: #333;
+  margin-top: 6px;
+  font-weight: normal;
+}
+body {
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin: 40px;
+}
+
+.box {
+  padding: 20px 25px;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  min-width: 180px;
+}
+
+.work {
+  background-color: #e74c3c; /* different red */
+}
+
+.stage {
+  background-color: #f39c12; /* orange, not mustard */
+}
+
+.repo {
+  background-color: #16a085; /* green-teal */
+}
+
+.arrow {
+  font-size: 28px;
+  font-weight: bold;
+  color: #555;
+}
+
+.command {
+  font-size: 14px;
+  color: #333;
+  margin-top: 6px;
+  font-weight: normal;
+}
+body {
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin: 40px;
+}
+
+.box {
+  padding: 20px 25px;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  min-width: 180px;
+}
+
+.work {
+  background-color: #e74c3c; /* different red */
+}
+
+.stage {
+  background-color: #f39c12; /* orange, not mustard */
+}
+
+.repo {
+  background-color: #16a085; /* green-teal */
+}
+
+.arrow {
+  font-size: 28px;
+  font-weight: bold;
+  color: #555;
+}
+
+.command {
+  font-size: 14px;
+  color: #333;
+  margin-top: 6px;
+  font-weight: normal;
+}
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fafafa;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin: 40px;
+}
+
+.box {
+  padding: 20px 25px;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  min-width: 220px;
+}
+
+.work {
+  background-color: #e74c3c;
+}
+
+.stage {
+  background-color: #f39c12;
+}
+
+.repo {
+  background-color: #16a085;
+}
+
+.arrow {
+  font-size: 26px;
+  font-weight: bold;
+  color: #555;
+  text-align: center;
+}
+
+.command {
+  font-size: 13px;
+  font-weight: normal;
+  margin-top: 6px;
+}
+
+.note {
+  font-size: 12px;
+  font-weight: normal;
+  margin-top: 8px;
+  background-color: rgba(255, 255, 255, 0.15);
+  padding: 6px;
+  border-radius: 4px;
+}
+:root {
+  --bg: #0b1020;
+  --panel: #0f1833;
+  --card: #121c3b;
+  --text: #eaf0ff;
+  --muted: #b9c6ff;
+  --line: #2a3766;
+  --ok: #29c7a7;
+  --warn: #ffb020;
+  --hot: #ff5a5f;
+  --remote: #7aa6ff;
+}
+body {
+  margin: 0;
+  background: linear-gradient(120deg, #0b1020, #070b16);
+  font-family:
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Arial,
+    sans-serif;
+  color: var(--text);
+}
+.wrap {
+  max-width: 1200px;
+  margin: 26px auto;
+  padding: 18px;
+}
+h1 {
+  font-size: 18px;
+  margin: 0 0 14px;
+  color: var(--muted);
+  font-weight: 700;
+}
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 380px 1fr;
+  gap: 16px;
+  align-items: start;
+}
+.remote {
+  background: rgba(122, 166, 255, 0.08);
+  border: 1px solid rgba(122, 166, 255, 0.35);
+  border-radius: 14px;
+  padding: 14px;
+  text-align: center;
+}
+.remote .title {
+  font-weight: 900;
+  font-size: 16px;
+  margin: 2px 0 6px;
+}
+.remote .sub {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.35;
+  margin: 0;
+}
+.dev {
+  background: rgba(18, 28, 59, 0.75);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 14px;
+}
+.dev h2 {
+  margin: 0 0 10px;
+  font-size: 14px;
+  color: var(--muted);
+  letter-spacing: 0.4px;
+}
+.stack {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+.area {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.02);
+}
+.area b {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+.area p {
+  margin: 0;
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.35;
+}
+.pillrow {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.pill {
+  font-size: 12px;
+  padding: 7px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--text);
+}
+.pill.ok {
+  border-color: rgba(41, 199, 167, 0.5);
+}
+.pill.warn {
+  border-color: rgba(255, 176, 32, 0.55);
+}
+.pill.hot {
+  border-color: rgba(255, 90, 95, 0.55);
+}
+.flows {
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+.flow {
+  border: 1px dashed rgba(185, 198, 255, 0.35);
+  border-radius: 12px;
+  padding: 10px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.35;
+  background: rgba(255, 255, 255, 0.015);
+}
+.flow b {
+  color: var(--text);
+}
+.centercol {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.legend {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.02);
+}
+.legend h3 {
+  margin: 0 0 8px;
+  font-size: 13px;
+  color: var(--muted);
+}
+.legend ul {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+.legend code {
+  color: var(--text);
+}
