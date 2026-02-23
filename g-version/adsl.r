@@ -21,7 +21,7 @@ adsl <- data.frame(
 )
 
 # 3. Create AGE categories
-adsl$AGEGR <- ifelse(adsl$AGE >= 80, "80+",
+adsl$AGEGR <- ifelse(adsl$AGE >= 100, "100+",
                      ifelse(adsl$AGE >= 40, "40-59", "<40"))
 
 # 4. Create a derived flag variable
